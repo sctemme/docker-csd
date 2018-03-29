@@ -1,7 +1,11 @@
-#! /bin/sh
+#! /bin/sh -x
 
 echo "Working in `pwd` " | tee /tmp/logfile
 
 find . -type f -name \*.tar -print -exec tar -C / -xf {} \; | tee -a /tmp/logfile
 
-/opt/nfast/sbin/install
+inst=/opt/nfast/sbin/install
+
+[ -x $inst ] && $inst
+
+exit 0
