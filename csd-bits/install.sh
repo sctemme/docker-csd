@@ -6,6 +6,6 @@ find . -type f -name \*.tar -print -exec tar -C / -xf {} \; | tee -a /tmp/logfil
 
 inst=/opt/nfast/sbin/install
 
-[ -x $inst ] && $inst
+[ -x $inst ] && $inst | tee -a /tmp/logfile
 
 exit 0
